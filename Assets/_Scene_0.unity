@@ -102,6 +102,7 @@ GameObject:
   - 92: {fileID: 523721911}
   - 124: {fileID: 523721910}
   - 81: {fileID: 523721909}
+  - 114: {fileID: 523721914}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -177,6 +178,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!114 &523721914
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 523721908}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9548effe29b256d45a7c8344ca45a645, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  basketPrefab: {fileID: 192158, guid: de728fd4f99f94c76a8a65699f3ca6fe, type: 2}
+  numBaskets: 3
+  basketBottomY: -14
+  basketSpacingY: 2
 --- !u!1 &1067226010
 GameObject:
   m_ObjectHideFlags: 0
