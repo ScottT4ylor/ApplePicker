@@ -1,15 +1,24 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class Basket : MonoBehaviour {
     Vector3 mousePos2d;
     Vector3 mousePos3d;
     Vector3 pos;
     GameObject hit;
+    public static int score;
+    Text scoreText;
+
+
 
 	void Start ()
     {
-	
+        score = 0;
+        scoreText = GameObject.Find("ScoreCounter").GetComponent<Text>();
+        updateScore();
+
+
 	}
 	
 	void Update ()
@@ -28,6 +37,12 @@ public class Basket : MonoBehaviour {
         if (hit.CompareTag("Apple"))
         {
             Destroy(hit);
+            score++;
+            updateScore();
         }
+    }
+    private void updateScore()
+    {
+        scoreText.text = score.ToString();
     }
 }
