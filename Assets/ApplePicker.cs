@@ -36,8 +36,8 @@ public class ApplePicker : MonoBehaviour
             Destroy(ap);
         }
         GameObject toDestroy = basketList[basketList.Count - 1];
-        Destroy(toDestroy);//this will currently break since I don't have the game ending code yet.
-        basketList.Remove(toDestroy);//also going to break
+        Destroy(toDestroy);//This will break if the level doesn't reload for some reason.
+        basketList.Remove(toDestroy);//So will this.
         if (basketList.Count <=0)
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex, LoadSceneMode.Single);

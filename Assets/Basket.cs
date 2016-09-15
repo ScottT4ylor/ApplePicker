@@ -9,6 +9,7 @@ public class Basket : MonoBehaviour {
     GameObject hit;
     public static int score;
     Text scoreText;
+    Text highScoreText;
 
 
 
@@ -16,6 +17,7 @@ public class Basket : MonoBehaviour {
     {
         score = 0;
         scoreText = GameObject.Find("ScoreCounter").GetComponent<Text>();
+        highScoreText = GameObject.Find("HighScore").GetComponent<Text>();
         updateScore();
 
 
@@ -38,11 +40,16 @@ public class Basket : MonoBehaviour {
         {
             Destroy(hit);
             score++;
+            AppleTree.difficulty += 0.05f;
             updateScore();
         }
     }
     private void updateScore()
     {
         scoreText.text = score.ToString();
+        if (score > HighScore.highScore)
+        {
+            highScoreText.gameObject.GetComponent<HighScore>().updateHighScore(score);
+        }
     }
 }

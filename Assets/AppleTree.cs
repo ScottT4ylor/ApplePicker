@@ -10,10 +10,12 @@ public class AppleTree : MonoBehaviour
 	public float secondsBetweenAppleDrops = 1f;
 	private Vector3 currentPos;
 	private Vector3 newPos;
+    public static float difficulty;
 
-	void Start ()
+    void Start ()
 	{
 		InvokeRepeating ("dropApple", 2f, secondsBetweenAppleDrops);
+        difficulty = 1;
 	}
 
 	void Update ()
@@ -28,7 +30,7 @@ public class AppleTree : MonoBehaviour
 			speed = Mathf.Abs (speed);
 		}
 
-		newPos.Set (currentPos.x + speed * Time.deltaTime, currentPos.y, currentPos.z);
+		newPos.Set (currentPos.x + speed * AppleTree.difficulty * Time.deltaTime, currentPos.y, currentPos.z);
 		transform.position = newPos;
 	}
 	void FixedUpdate()
