@@ -14,7 +14,7 @@ public class AppleTree : MonoBehaviour
 
     void Start ()
 	{
-		InvokeRepeating ("dropApple", 2f, secondsBetweenAppleDrops);
+		Invoke ("dropApple", 2f);
         difficulty = 1;
 	}
 
@@ -45,5 +45,12 @@ public class AppleTree : MonoBehaviour
 	{
 		GameObject apple = Instantiate (applePrefab, transform.position, Quaternion.identity) as GameObject;
 		apple.transform.position = transform.position;
+		StartCoroutine(dropDelay ());
+	}
+
+	IEnumerator dropDelay()
+	{
+		yield return new WaitForSeconds (2 / difficulty);
+		dropApple ();
 	}
 }
