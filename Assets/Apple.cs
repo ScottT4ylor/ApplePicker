@@ -25,8 +25,8 @@ public class Apple : MonoBehaviour {
 	{
 		if (transform.position.y <= killHeight)
 		{
+			apScript.appleDropped();
 			Destroy (this.gameObject);
-            apScript.appleDropped();
 		}
 	}
 }
